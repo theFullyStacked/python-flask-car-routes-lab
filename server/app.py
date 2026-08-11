@@ -10,11 +10,10 @@ def home():
 
 @app.route('/<model>')
 def model(model):
-    for key in existing_models:
-        if model==key:
-            return f'Flatiron {model} is in our fleet!'
-        else:
-            return f'No models called {model} exists in our catalog'
+    if model in existing_models:
+        return f'Flatiron {model} is in our fleet!'
+    else:
+        return f'No models called {model} exists in our catalog'
     
 
 if __name__=='__main__':
